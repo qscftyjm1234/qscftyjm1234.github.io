@@ -1,0 +1,9 @@
+
+@mixin crad_text_h3{
+    color: #525558;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 20px;
+    min-height: 40px;
+    @content;
+}

@@ -1,0 +1,91 @@
+
+*{
+    font-family: "Helvetica Neue", Helvetica, Arial, "STHeiti", "Microsoft JhengHei", "微軟正黑體", "sans-serif";
+}
+
+
+.container {
+   /* border: 1px solid red; */
+
+
+}
+
+.nav_all{
+   padding: 20px 0;
+}
+
+.logo{
+      align-items: center;
+    display: flex;
+    justify-content:start;
+}
+.logo img{
+  
+    width:100%;
+}
+.nav123 {
+    align-items: center;
+    display: flex;
+  padding:0;
+    justify-content: space-around;
+    margin: 0;
+}
+.nav123 li{
+   
+  list-style: none;
+    
+}
+
+.nav123 li >a{
+    font-size: 18px;
+    display: inline-block;
+    padding:10px 0;
+    color: #525558;
+    font-weight: 700;
+}
+.col-8,.col-2,.col-2{
+padding:0 ;
+
+
+}
+
+.nav_right{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.nav_right .search{
+
+}
+
+.nav_right .login{
+    
+}
+.nav_right .login> a{
+
+    padding:7px 28px;
+    font-size:14px ;
+    border:1px solid #3f9878;
+    color:#3f9878;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+
+
+.big_sort{
+   
+}
+
+.big_sort .bigtitle{
+width:100%;
+ text-align: center;
+position: relative;
+}
+
+.big_sort .bigtitle h3::before{
+    content: "";
+    border:1px solid red ;
+}

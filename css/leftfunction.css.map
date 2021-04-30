@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,aAAa,CAAA;EAET,QAAQ,EAAC,KAAK;EACd,KAAK,EAAC,KAAK;EACX,MAAM,EAAE,KAAK;EACb,gBAAgB,EAAE,GAAG;EACrB,IAAI,EAAC,MAAM;EACX,GAAG,EAAC,CAAC;EACL,OAAO,EAAE,EAAE;CACd",
+    "sources": [
+        "../sass/leftfunction.scss"
+    ],
+    "names": [],
+    "file": "leftfunction.css"
+}
