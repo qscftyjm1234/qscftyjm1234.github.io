@@ -157,23 +157,22 @@
 
     <!-- img-content -->
     <div class="container-md d-flex">
-      <div class="row" style="width: 100%">
-        <div class="col-4"><img src="https://fakeimg.pl/150/" alt="" /></div>
-        <div class="col-4"><img src="https://fakeimg.pl/150/" alt="" /></div>
-        <div class="col-4"><img src="https://fakeimg.pl/150/" alt="" /></div>
-        <div class="col-4"><img src="https://fakeimg.pl/150/" alt="" /></div>
-        <div class="col-4"><img src="https://fakeimg.pl/150/" alt="" /></div>
-        <div class="col-4"><img src="https://fakeimg.pl/150/" alt="" /></div>
+      <div class="row px-2" style="width: 100%" id="use-api">
       </div>
-      <div class="ms-auto img-detail">
-        <h1>標題</h1>
+      <div class="ms-auto img-detail  p-4">
+        <h2>小編私心推薦</h2>
         <p>
-          介紹介紹介紹介紹介紹介 紹介紹介紹介紹介紹介紹 介紹介紹介紹介紹介紹介
-          紹介紹介紹介紹介紹介紹 介紹介紹介紹
+          國內旅遊指在台灣本島、澎湖、金門、馬祖、綠島、蘭嶼等中華民國政府管轄權所及區域從事旅遊(出差)活動，最長保險期間30天。
+          搭飛機也有「班機延誤」不便險的選擇了，離島或本島的國內班機都有保障；若旅程中有租車就可以在幫自己(駕駛人)投保旅行綜合
+          保險時附加租車責任保險，依照租借的車種(汽車、機車、自行車或電動自行車)選擇合適的方案，讓國內旅遊照樣安心趴趴走。
         </p>
       </div>
     </div>
     <!-- img-content -->
+
+    <!-- footer -->
+    <footer>我是footer</footer>
+    <!-- /footer -->
   </body>
 </html>
 <style>
@@ -181,24 +180,36 @@
 </style>
 
 <!--jquey拿api -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
 <script>
-  $(document).ready(function () {
-    console.log('123');
-    $.post(
-      'multipleproduct.wacocolife.com/api/gallery/showClient/1',
-      function (data, status) {
-        alert(data);
-      }
-    );
+  $(function () {
     $.ajax({
-      url: '/api/getWeather',
-      data: {
-        zipcode: 97201,
-      },
-      success: function (result) {
-        alert(result);
+      url: 'http://multipleproduct.wacocolife.com/api/gallery/showClient/1', //後端的URL
+      type: 'POST', //用POST的方式
+      dataType: 'json', //response的資料格式
+      cache: false, //是否暫存
+      //   data: data, //傳送給後端的資料
+      success: function (res) {
+        let apiArr = [];
+        apiArr.push(...res.items);
+        createDom(apiArr);
       },
     });
+    function createDom(apiArr) {
+      let useApi = document.querySelector('#use-api');
+      console.log(apiArr);
+      let newDow = apiArr
+        .map((arr) => {
+          return `<div class="col-4 pb-3" ><img src="https://picsum.photos/300/300?random=1" alt="${arr.alt}" />
+            <div class="title">${arr.title}</div>
+            <p>${arr.note}</p>
+            </div>`;
+        })
+        .join('');
+      useApi.innerHTML = newDow;
+    }
   });
 </script>
